@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝑺𝒆𝒐𝒖𝒍</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+    <style>
+        /* 基礎設置：移除邊距，使用 Flexbox 垂直佈局 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+Font-size:9pt;
+
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* 確保佔滿整個視窗高度 */
+        }
+        
+        /* 上方選單樣式 */
+        #top-menu {
+            background-color: #000000; /* 選單背景色 */
+            padding: 10px 20px;
+            text-align: center;
+            flex-shrink: 0; /* 防止選單被壓縮 */
+        }
+        #top-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        #top-menu a:hover {
+            background-color: #000000;
+        }
+        
+        /* 下方內容視窗 (iframe) 樣式 */
+        #content-frame {
+            flex-grow: 1; /* 讓 iframe 佔滿所有剩餘空間 */
+            width: 100%;
+            border: 1px solid #ccc; /* 輕微邊框區分上下區域 */
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="top-menu">
+        <a href="#" id="link-seoulschedule">行程</a>
+        <a href="#" id="link-ootd">穿搭</a>
+        <a href="#" id="link-shoppinglistimage">購物清單</a>
+        <a href="#" id="link-address">地址</a>
+
+    </div>
+
+    <iframe id="content-frame" src="seoulschedule.html"></iframe>
+
+    <script>
+        const frame = document.getElementById('content-frame');
+
+        // 監聽所有選單連結的點擊事件
+        document.getElementById('link-seoulschedule').addEventListener('click', function(e) {
+            e.preventDefault(); // 阻止連結預設行為
+            frame.src = 'seoulschedule.html'; // 載入行程頁面
+        });
+
+
+
+        document.getElementById('link-ootd').addEventListener('click', function(e) {
+            e.preventDefault();
+            frame.src = 'ootd.html'; // 載入穿搭頁面
+            console.log('請確保您已建立 ootd.html 檔案！');
+        });
+
+
+        document.getElementById('link-shoppinglistimage').addEventListener('click', function(e) {
+            e.preventDefault();
+            frame.src = 'shoppinglistimage.html'; // 載入購物清單頁面
+            console.log('請確保您已建立 shoppinglistimage.html 檔案！');
+
+        document.getElementById('link-address').addEventListener('click', function(e) {
+            e.preventDefault();
+            frame.src = 'address.html'; // 載入地址頁面
+            console.log('請確保您已建立 address.html 檔案！');
+        });
+
+        });
+    </script>
+</body>
+</html>
